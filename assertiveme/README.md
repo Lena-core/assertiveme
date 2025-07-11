@@ -1,50 +1,162 @@
-# Welcome to your Expo app 👋
+# AssertiveMe 🧠💪
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> Emotional awareness & assertiveness training mobile app
 
-## Get started
+**AssertiveMe** помогает пользователям анализировать сложные эмоциональные ситуации и развивать навыки ассертивности через структурированное ведение дневника переживаний.
 
-1. Install dependencies
+## 📱 Features
 
-   ```bash
-   npm install
-   ```
+- **📝 Situation Logging**: Подробная запись эмоциональных ситуаций
+- **🔍 Self-Analysis**: Анализ чувств, поведения и истинных желаний  
+- **📚 Event History**: Просмотр и редактирование прошлых записей
+- **💾 Local Storage**: Все данные хранятся локально на устройстве
+- **🎨 Clean UI**: Минималистичный дизайн с приятной цветовой схемой
 
-2. Start the app
+## 🏗️ Tech Stack
 
-   ```bash
-   npx expo start
-   ```
+- **React Native** with **Expo Router**
+- **TypeScript** for type safety
+- **AsyncStorage** for local data persistence
+- **File-based routing** with Expo Router
+- **Native styling** with StyleSheet API
 
-In the output, you'll find options to open the app in a
+## 🚀 Quick Start
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Prerequisites
+- Node.js 18+
+- Expo CLI
+- iOS Simulator / Android Emulator / Physical device with Expo Go
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Installation
 
 ```bash
-npm run reset-project
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/assertiveme.git
+cd assertiveme
+
+# Install dependencies
+npm install
+
+# Start the development server
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Running the app
+- **iOS**: Press `i` in terminal or scan QR with Expo Go
+- **Android**: Press `a` in terminal or scan QR with Expo Go  
+- **Web**: Press `w` in terminal
 
-## Learn more
+## 📱 App Structure
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+app/
+├── _layout.tsx          # Root layout with navigation
+├── index.tsx           # Main screen (situation form)
+├── history.tsx         # History screen (events list)
+└── +not-found.tsx      # 404 screen
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Navigation Flow
+1. **Start** → Main Screen (situation form)
+2. **Save Event** → History Screen  
+3. **Edit Button** → Main Screen (pre-filled)
+4. **Add New** → Main Screen (empty form)
 
-## Join the community
+## 🎯 Core Functionality
 
-Join our community of developers creating universal apps.
+### Main Screen - "Let's figure it out"
+- **Tabs**: Situation | Assertiveness practice
+- **5 Input Fields**:
+  - What happened? *(описание ситуации)*
+  - What I felt? *(чувства и телесные реакции)*  
+  - What I've done? *(фактическое поведение)*
+  - What I actually wanted? *(истинные желания)*
+  - What I was trying to avoid? *(избегаемые аспекты)*
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### History Screen
+- **Event Cards** with date, preview, edit/delete options
+- **Empty State** for new users
+- **Add New Event** button
+
+## 🎨 Design System
+
+### Colors
+- **Primary**: `#009ECF` (Turquoise)
+- **Background**: `#FFFFFF` (White)
+- **Text**: `#333333` / `#666666`
+- **Inputs**: `#FAFAFA` background
+
+### Typography
+- **Titles**: 28px bold
+- **Labels**: 16px semi-bold
+- **Body**: 16px regular
+
+## 💾 Data Structure
+
+Events are stored in AsyncStorage as JSON array:
+
+```javascript
+{
+  whatHappened: string,
+  whatIFelt: string, 
+  whatIDone: string,
+  whatIWanted: string,
+  whatIAvoided: string,
+  createdAt: string,
+  updatedAt: string
+}
+```
+
+## 🚀 Build & Deploy
+
+### Development Preview
+```bash
+npx expo start
+```
+
+### Production Builds
+```bash
+# Android APK
+npx eas build --platform android --profile preview
+
+# iOS IPA  
+npx eas build --platform ios --profile preview
+
+# Web version
+npx expo export --platform web
+```
+
+## 📋 Project Status
+
+- ✅ **v1.0.0**: Core functionality implemented
+- ✅ **Form validation** and error handling  
+- ✅ **Local data persistence**
+- ✅ **CRUD operations** for events
+- ✅ **Responsive UI** design
+- 🔄 **Coming Soon**: Assertiveness practice exercises
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built for personal development and emotional intelligence
+- Supports therapy and self-reflection practices
+- Designed with privacy-first approach (local storage only)
+
+---
+
+**Made with ❤️ for emotional growth and assertiveness development**
+
+![AssertiveMe Preview](https://via.placeholder.com/800x400/009ECF/FFFFFF?text=AssertiveMe+Preview)
+
+> *Helping people understand their emotions and develop healthier communication patterns*
